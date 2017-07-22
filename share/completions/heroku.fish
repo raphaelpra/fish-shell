@@ -167,6 +167,10 @@ complete -c heroku -n '__fish_heroku_using_command logs' -s p -l ps -l PS -d "on
 complete -c heroku -n '__fish_heroku_using_command logs' -s s -l source -l SOURCE -d "only display logs from the given source"
 complete -c heroku -n '__fish_heroku_using_command logs' -s t -l tail -d "continually stream logs"
 
+# Pg options
+complete -c heroku -n '__fish_heroku_using_command pg' -l app -s a -xa '(__fish_list_heroku_apps)' -d "app to run command against"
+complete -c heroku -n '__fish_heroku_using_command pg' -l remote -s r -xa '(__fish_git_remotes)' -d "git remote of app to use"
+
 # PG subcommands
 complete $heroku_looking -xa pg:backups -d "manage backups of heroku postgresql databases"
 complete $heroku_looking -xa pg:backups:cancel -d "cancel an in-progress backup or restore (default newest)"
